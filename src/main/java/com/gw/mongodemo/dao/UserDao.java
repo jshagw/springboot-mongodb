@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface UserDao extends MongoRepository<User, String> {
     public Optional<User> findByName(String name);
+    public Optional<User> findByUserId(Integer userId);
 }

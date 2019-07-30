@@ -1,5 +1,5 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/springbootdb
+      uri: mongodb://10.168.1.50:40000/mytest
 

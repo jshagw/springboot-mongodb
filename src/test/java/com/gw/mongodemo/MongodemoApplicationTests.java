@@ -20,13 +20,17 @@ public class MongodemoApplicationTests {
 
     @Test
     public void addUser() {
-        User user = new User("2", "Neil", 6, "男");
+        User user = new User();
+        user.setUserId(11000000);
+        user.setName("Neil");
+        user.setAge(6);
+        user.setSex("男");
         userDao.insert(user);
     }
 
     @Test
     public void findByID() {
-        Optional<User> user = userDao.findById("2");
+        Optional<User> user = userDao.findByUserId(11000000);
         if ( user.isPresent() ) {
             System.out.println(user.get().getName());
         }
@@ -36,7 +40,7 @@ public class MongodemoApplicationTests {
     public void findByName() {
         User u = new User();
         u.setName("Neil");
-        u.setAge(5);
+        //u.setAge(5);
         Optional<User> user = userDao.findOne(Example.of(u));
         //Optional<User> user = userDao.findByName("Neil");
         if ( user.isPresent() ) {
